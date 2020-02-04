@@ -6,6 +6,8 @@ import {
     FETCH_STREAMS
 } from "../actions/types";
 
+import { mapKeys } from "../helpers/object";
+
 export default (state = {}, action) => {
     switch (action.type) {
         case CREATE_STREAM:
@@ -14,6 +16,8 @@ export default (state = {}, action) => {
             return { ...state, [action.payload.id]: action.payload };
         case DELETE_STREAM:
             return { ...state, [action.payload]: undefined };
+        case FETCH_STREAMS:
+            return { ...state, ...mapKeys(action.payload, (val) => val.id) };
         default:
             return state;
     }
