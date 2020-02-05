@@ -11,16 +11,15 @@ const mapKeys = (obj, func) => {
         throw "Parameter is not an object or an array";
     }
     
-    let result = {};
-    
+    let result = {};  
     if(Array.isArray(obj)){
         obj.forEach((currentValue, key, arr) => {
             result = { ...result, ...{[func(currentValue, key, arr)]: currentValue}};
-        }, result);
+        });
     } else {
         Object.keys(obj).forEach(key => {
             result = { ...result, ...{[func(obj[key], key)]: obj[key]}};
-        }, result); 
+        }); 
     }
 
     return result;
