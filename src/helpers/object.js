@@ -26,8 +26,8 @@ export const mapKeys = (obj, func) => {
             result = { ...result, ...{[func(currentValue, key, arr)]: currentValue}};
         });
     } else {
-        Object.keys(obj).forEach(key => {
-            result = { ...result, ...{[func(obj[key], key)]: obj[key]}};
+        Object.keys(obj).forEach(currentValue => {
+            result = { ...result, ...{[func(obj[currentValue], currentValue)]: obj[currentValue]}};
         }); 
     }
 
