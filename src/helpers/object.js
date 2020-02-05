@@ -15,7 +15,7 @@
  * @param {Function} func Determines the value of the key
  * @returns {Object} Returns the Object with key determined by func and the same value
  */
-const mapKeys = (obj, func) => {
+export const mapKeys = (obj, func) => {
     if(typeof obj !== "object"){
         throw "The parameter obj is not an object or an array";
     }
