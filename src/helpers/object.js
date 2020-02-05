@@ -8,7 +8,7 @@
  */
 const mapKeys = (obj, func) => {
     if(typeof obj !== "object"){
-        throw "Parameter is not an object or an array";
+        throw "The parameter obj is not an object or an array";
     }
     
     let result = {};  
