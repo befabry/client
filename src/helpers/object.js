@@ -5,11 +5,11 @@
  * Examples :
  * let obj = {0:{"id": 5, "test": "test", "test2": "test2"}, 1:{"id": 10, "test": "test", "test2": "test2"}};
  * mapKeys(obj, (val, key) => val.id.toString() + key);
- * output : { 5: Object { id: 5, test: "test", test2: "test2" }, 10: { id: 10, test: "test", test2: "test2" }}
+ * output : { 5: { id: 5, test: "test", test2: "test2" }, 10: { id: 10, test: "test", test2: "test2" }}
  *
  * let arr = [{"id": 5, "test": "test", "test2": "test2"}, {"id": 10, "test": "test", "test2": "test2"}];
  * mapKeys(arr, (val, key) => val.id.toString() + key);
- * output : {50: Object { id: 5, test: "test", test2: "test2" }, 101: Object { id: 10, test: "test", test2: "test2" }}
+ * output : {50: { id: 5, test: "test", test2: "test2" }, 101: { id: 10, test: "test", test2: "test2" }}
  * 
  * @param {Array|Object} obj The Object or Array to iterate over 
  * @param {Function} func Determines the value of the key
