@@ -11,8 +11,8 @@
  * mapKeys(arr, val => val.id);
  * output : {5: { id: 5, test: "test", test2: "test2" }, 10: { id: 10, test: "test", test2: "test2" }}
  * 
- * @param array
- * @param func
+ * @param obj an object or array
+ * @param func an arrow function with the expected return
  * @returns {{}} 
  */
 const mapKeys = (obj, func) => {
