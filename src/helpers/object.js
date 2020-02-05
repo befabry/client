@@ -1,5 +1,5 @@
 /**
- * Takes an array as parameter and return an object with the given func as key and the same value
+ * Takes an array or an object as parameter and return an object with the given func as key and the same value
  * Inspired by Lodash and by : https://www.30secondsofcode.org/js/s/map-keys
  *
  * @param array
