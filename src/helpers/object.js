@@ -13,7 +13,7 @@
  * 
  * @param {Array|Object} obj The Object or Array to iterate over 
  * @param {Function} func Determines the value of the key
- * @returns {Object} The Object with key determined by func and the same value
+ * @returns {Object} Returns the Object with key determined by func and the same value
  */
 const mapKeys = (obj, func) => {
     if(typeof obj !== "object"){
