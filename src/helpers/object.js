@@ -17,7 +17,7 @@
  */
 export const mapKeys = (obj, func) => {
     if (typeof obj !== "object") {
-        throw "The parameter obj is not an object or an array";
+        throw new TypeError("The parameter obj is not an object or an array");
     }
 
     let result = {};
