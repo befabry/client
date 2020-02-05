@@ -4,7 +4,7 @@
  *
  * Examples :
  * let obj = {0:{"id": 5, "test": "test", "test2": "test2"}, 1:{"id": 10, "test": "test", "test2": "test2"}};
- * mapKeys(obj, (val, key) => val.id.toString() + key);
+ * mapKeys(obj, val => val.id);
  * output : { 5: { id: 5, test: "test", test2: "test2" }, 10: { id: 10, test: "test", test2: "test2" }}
  *
  * let arr = [{"id": 5, "test": "test", "test2": "test2"}, {"id": 10, "test": "test", "test2": "test2"}];
