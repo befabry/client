@@ -20,17 +20,30 @@ export const mapKeys = (obj, func) => {
         throw new TypeError("The parameter obj is not an object or an array");
     }
 
-    let result = {};
-    
-    if (Array.isArray(obj)) {
-        obj.forEach((currentValue, key, arr) => {
-            result[func(currentValue, key, arr)] = currentValue;
-        });
-    } else {
-        Object.keys(obj).forEach((currentValue) => {
-            result[func(obj[currentValue], currentValue)] = obj[currentValue];
-        });
+    if (typeof func !== "function") {
+        throw new TypeError("The parameter func is not a function");
     }
-    
+
+    let result = {};
+    //Init worker variables
+    let getKey;
+    let value;
+    let arr;
+    //Preprocess variables in case of array of object
+    if (Array.isArray(obj)) {
+        arr = obj;
+        value = val => val;
+        getKey = (currentValue, key, arr) => func(currentValue, key, arr);
+    } else {
+        arr = Object.keys(obj);
+        value = val => obj[val];
+        getKey = (currentValue, key, arr) =>
+            func(obj[currentValue], currentValue, arr);
+    }
+
+    arr.forEach((currentValue, key, arr) => {
+        result[getKey(currentValue, key, arr)] = value(currentValue);
+    });
+
     return result;
 };
