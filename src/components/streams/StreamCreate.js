@@ -8,7 +8,6 @@ class StreamCreate extends React.Component {
     onSubmit = (formValues) => {
         //Not needed, handleSubmit from redux takes care of this
         //event.preventDefault();
-        console.log(formValues);
         this.props.createStream(formValues);
     };
 
