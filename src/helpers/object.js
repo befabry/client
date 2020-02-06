@@ -21,23 +21,19 @@ export const mapKeys = (obj, func) => {
     }
 
     let result = {};
+    let calculateKey;
+    
     if (Array.isArray(obj)) {
         obj.forEach((currentValue, key, arr) => {
-            result = {
-                ...result,
-                ...{ [func(currentValue, key, arr)]: currentValue }
-            };
+            calculateKey = func(currentValue, key, arr);
+            result[calculateKey] = currentValue;
         });
     } else {
         Object.keys(obj).forEach((currentValue) => {
-            result = {
-                ...result,
-                ...{
-                    [func(obj[currentValue], currentValue)]: obj[currentValue]
-                }
-            };
+            calculateKey = func(obj[currentValue], currentValue);
+            result[calculateKey] = obj[currentValue];
         });
     }
-
+    
     return result;
 };
