@@ -15,7 +15,7 @@
  * @param {Function} func Determines the value of the key
  * @returns {Object} Returns the Object with key determined by func and the same value
  */
-export const mapKeys = (obj, func) => {
+export default (obj, func) => {
     if (typeof obj !== "object") {
         throw new TypeError("The parameter obj is not an object or an array");
     }
@@ -29,14 +29,14 @@ export const mapKeys = (obj, func) => {
     let getKey;
     let value;
     let arr;
-    //Preprocess variables in case of array of object
+    //Preprocess variables in case of array or object
     if (Array.isArray(obj)) {
         arr = obj;
-        value = val => val;
+        value = (val) => val;
         getKey = (currentValue, key, arr) => func(currentValue, key, arr);
     } else {
         arr = Object.keys(obj);
-        value = val => obj[val];
+        value = (val) => obj[val];
         getKey = (currentValue, key, arr) =>
             func(obj[currentValue], currentValue, arr);
     }

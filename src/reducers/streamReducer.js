@@ -6,7 +6,7 @@ import {
     FETCH_STREAMS
 } from "../actions/types";
 
-import { mapKeys } from "../helpers/object";
+import mapKeys from "../helpers/mapKeys";
 
 export default (state = {}, action) => {
     switch (action.type) {
