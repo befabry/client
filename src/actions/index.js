@@ -1,4 +1,5 @@
 import streams from "../api/streams";
+import history from "../history";
 import {
     CREATE_STREAM,
     DELETE_STREAM,
@@ -31,6 +32,8 @@ export const createStream = (formValues) => {
         });
 
         dispatch({ type: CREATE_STREAM, payload: response.data });
+
+        history.push("/");
     };
 };
 
