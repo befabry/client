@@ -25,8 +25,11 @@ export default (obj, func) => {
     }
 
     //Init worker variables
-    let result = {}, arr, value, getKey;
-    
+    let result = {},
+        arr,
+        value,
+        getKey;
+
     //Preprocess variables in case of array or object
     if (Array.isArray(obj)) {
         arr = obj;
