@@ -24,11 +24,9 @@ export default (obj, func) => {
         throw new TypeError("The parameter func is not a function");
     }
 
-    let result = {};
     //Init worker variables
-    let getKey;
-    let value;
-    let arr;
+    let result = {}, arr, value, getKey;
+    
     //Preprocess variables in case of array or object
     if (Array.isArray(obj)) {
         arr = obj;
