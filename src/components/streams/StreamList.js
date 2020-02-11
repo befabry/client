@@ -19,7 +19,12 @@ class StreamList extends React.Component {
                     >
                         Edit
                     </Link>
-                    <button className="ui button negative">Delete</button>
+                    <Link
+                        to={`/streams/delete/${stream.id}`}
+                        className="ui button negative"
+                    >
+                        Delete
+                    </Link>
                 </div>
             );
         }
@@ -29,7 +34,10 @@ class StreamList extends React.Component {
 
     renderList() {
         return this.props.streams.map((stream) => {
-            return (
+
+            //undefined from DELETE_STREAM in streamReducer
+            //https://dustinpfister.github.io/2019/08/19/lodash_omit/ Write own omit ?
+            return stream !== undefined ? (
                 <div className="item" key={stream.id}>
                     {this.renderAdminButtons(stream)}
                     <i className="large middle aligned icon camera" />
@@ -38,7 +46,7 @@ class StreamList extends React.Component {
                         <div className="description">{stream.description}</div>
                     </div>
                 </div>
-            );
+            ) : null;
         });
     }
 
