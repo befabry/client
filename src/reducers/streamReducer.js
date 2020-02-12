@@ -7,6 +7,7 @@ import {
 } from "../actions/types";
 
 import mapKeys from "../helpers/mapKeys";
+import omit from "../helpers/omit";
 
 export default (state = {}, action) => {
     switch (action.type) {
@@ -15,7 +16,7 @@ export default (state = {}, action) => {
         case FETCH_STREAM:
             return { ...state, [action.payload.id]: action.payload };
         case DELETE_STREAM:
-            return { ...state, [action.payload]: undefined };
+            return omit(state, [action.payload]);
         case FETCH_STREAMS:
             return { ...state, ...mapKeys(action.payload, (val) => val.id) };
         default:
